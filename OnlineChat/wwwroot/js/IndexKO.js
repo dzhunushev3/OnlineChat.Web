@@ -50,7 +50,6 @@
 
     self.selectedMessage = function(data) {
         window.location.href = data.id;
-        var messageId = data.id.substr(1);
     };
     function getChatList() {
         jQuery.getJSON("/Home/GetListChats", 
@@ -92,10 +91,10 @@
                 self.onlineUsersList(data);
             });
     };
-    function getSelectedChatMessages(id){
+    function getSelectedChatMessages(id) {
         self.selectedChatListMessages();
         jQuery.getJSON("/Home/SelectedChat",
-            { id: id },
+            { idChat: id },
             function(data) {
                 self.selectedChatListMessages(data);
             });

@@ -141,17 +141,31 @@ namespace OnlineChat.BLL.Services
             try
             {
                 var name = "";
+                ApplicationUser user2 = new ApplicationUser();
                 var chat = await _unitOfWork.ChatRepository.GetChatByIdAsync(idChat);
+                if (chat.UserId1 == user.Id)
+                {
+                    user2 = await _userManager.FindByIdAsync(chat.UserId2);
+                }
+                else
+                {
+                    user2 = await _userManager.FindByIdAsync(chat.UserId1);
+                }
+                
                 if (chat.IsGroup)
                 {
                     name = chat.Name;
                 }
                 else
                 {
-                    var user2 = await _userManager.FindByIdAsync(chat.UserId2);
-                    if (user2 == user)
+                    
+                    if (chat.UserId1 == user.Id && chat.UserId2 == user.Id)
                     {
-                        name = "Saves";
+                        name = "Save";
+                    }
+                    else if (chat.UserId1 == user.Id)
+                    {
+                        name = user2.UserName;
                     }
                     else
                     {
