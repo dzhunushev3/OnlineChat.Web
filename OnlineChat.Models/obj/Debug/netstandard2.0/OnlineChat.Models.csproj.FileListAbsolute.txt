@@ -1,0 +1,5 @@
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.Models\bin\Debug\netstandard2.0\OnlineChat.Models.deps.json
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.Models\bin\Debug\netstandard2.0\OnlineChat.Models.dll
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.Models\obj\Debug\netstandard2.0\OnlineChat.Models.csprojAssemblyReference.cache
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.Models\obj\Debug\netstandard2.0\OnlineChat.Models.AssemblyInfoInputs.cache
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.Models\obj\Debug\netstandard2.0\OnlineChat.Models.AssemblyInfo.cs

@@ -1,0 +1,14 @@
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\obj\Debug\netstandard2.1\OnlineChat.BLL.csprojAssemblyReference.cache
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\obj\Debug\netstandard2.1\OnlineChat.BLL.csproj.CoreCompileInputs.cache
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\obj\Debug\netstandard2.1\OnlineChat.BLL.AssemblyInfoInputs.cache
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\obj\Debug\netstandard2.1\OnlineChat.BLL.AssemblyInfo.cs
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\bin\Debug\netstandard2.1\OnlineChat.BLL.deps.json
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\bin\Debug\netstandard2.1\OnlineChat.BLL.dll
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\bin\Debug\netstandard2.1\OnlineChat.BLL.pdb
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\bin\Debug\netstandard2.1\OnlineChat.DAL.dll
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\bin\Debug\netstandard2.1\OnlineChat.Models.dll
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\bin\Debug\netstandard2.1\OnlineChat.DAL.pdb
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\bin\Debug\netstandard2.1\OnlineChat.Models.pdb
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\obj\Debug\netstandard2.1\OnlineChat.BLL.csproj.CopyComplete
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\obj\Debug\netstandard2.1\OnlineChat.BLL.dll
+C:\Users\dzhun\source\repos\OnlineChat.Web\OnlineChat.BLL\obj\Debug\netstandard2.1\OnlineChat.BLL.pdb

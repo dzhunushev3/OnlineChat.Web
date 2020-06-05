@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "@microsoft/signalr@3.1.4",
+      "destination": "wwwroot/microsoft/signalr/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "knockout@3.5.1",
+      "destination": "wwwroot/lib/knockout/",
+      "files": [
+        "knockout-latest.js",
+        "knockout-latest.min.js"
+      ]
+    }
+  ]
+}

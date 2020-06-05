@@ -1,0 +1,184 @@
+﻿body {
+    height: 100%;
+    background: #343a40;
+}
+
+.sidebar {
+    background: #fdfefe;
+}
+
+.searchUserAndGroup {
+    background: #e5e8e8;
+    color: #343a40;
+    border-color: #333;
+}
+
+    .searchUserAndGroup:focus {
+        background: #e5e8e8;
+        color: #343a40;
+    }
+
+.sidebarMenu {
+    margin-left: auto;
+}
+
+    .sidebarMenu .btn {
+        margin: 2% 3%;
+        font-size: 12px;
+        border-radius: 10px;
+        color: #343a40;
+        background: #fdfefe;
+        font-weight: bold;
+    }
+
+        .sidebarMenu .btn:hover {
+            background: #e5e8e8;
+        }
+
+.scroll {
+    border-radius: 10px;
+    height: 470px;
+    margin-bottom: 10px;
+    overflow: scroll;
+    -webkit-overflow-scrolling: auto;
+}
+
+.scrollItem {
+    background: #fdfefe;
+    border: hidden;
+    color: #343a40;
+    font-weight: bold;
+}
+
+    .scrollItem .active {
+        background: #232323;
+        border-left: bisque;
+    }
+
+    .scrollItem:hover {
+        background: #e5e8e8;
+    }
+
+    .scrollItem p {
+        color: #343a40;
+    }
+
+.chat-header {
+    background: #fdfefe;
+    color: #343a40;
+    padding: 2%;
+}
+
+    .chat-header h5 {
+        font-weight: bold;
+    }
+
+.search-messages {
+    background: #e5e8e8;
+    color: #343a40;
+    border-color: #333;
+    width: auto;
+    position: fixed;
+    right: 1%;
+    top: 2%;
+}
+
+    .search-messages:focus {
+        background: #232323;
+        color: #ffffff;
+    }
+
+.chat-box {
+    background: #1b1e21;
+    color: #ffffff;
+    height: 475px;
+    width: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: auto;
+}
+
+.message-input {
+    background: #1b1e21;
+    color: #ffffff;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-left: auto;
+}
+
+.input-message {
+    border-radius: 5px;
+    width: 85%;
+    margin-left: 2%;
+    background: #343a40;
+    color: #ffffff;
+    border: none;
+}
+
+    .input-message:focus {
+        background: #232323;
+        color: #ffffff;
+        border: none;
+    }
+
+.send-btn {
+    background: #343a40;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-result {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+    .search-result .user-name {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    .search-result p {
+        font-size: 0.8rem;
+    }
+
+    .search-result .clock {
+        text-decoration: none;
+        color: #C4C4C4
+    }
+
+    .search-result:hover {
+        text-decoration: none;
+    }
+
+.sidebar-header a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.messageContainer {
+    width: 100%;
+    height: 100%;
+    background-image: -o-radial-gradient(black,#1b1e21);
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.avatar-chat {
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%
+}
+
+.message-active p{
+    color: #1b1e21;
+    background-color: #ffffff;
+    border-radius: 2px;
+}

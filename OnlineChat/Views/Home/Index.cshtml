@@ -1,0 +1,119 @@
+﻿
+<div>
+    <div class="row">
+        <div class="col-md-4 sidebar">
+            <div class="ml-5 mt-3">
+                <div class="pb-2 sidebar-header">
+                    <img data-bind="attr:{src: AvatarPath}" class="avatar">
+                    <a data-toggle="modal" data-target="#user-settings" data-bind="text: UserName" ></a>
+                </div>
+                <div>
+                    <input class="form-control searchUserAndGroup" type="search" id="searchUserAndGroup" placeholder="Search">
+                </div>
+                <div class="row sidebarMenu" id="sidebar-menu">
+                    <button class="col-md-3 btn" data-bind="click: $root.listChat">Chats</button>
+                    <button class="col-md-3 btn" data-bind="click: $root.onlineUser">Online Users</button>
+                    <button type="button" class="btn ml-3" data-toggle="modal" data-target="#createGroup">Add group</button>
+                </div>
+                <div class="listChats list-group scroll" id="sidebar">
+                    <div >
+                        <ul class="list-group " data-bind="foreach: chatList,visible : listChatsUl">
+                            <a class="scrollItem list-group-item list-group-item-action" data-bind="click: $root.selectedChat">
+                                <p data-bind="text: name"></p>
+                            </a>
+                        </ul>
+                        <ul class="list-group" data-bind="foreach:onlineUsersList,visible: listOnlineUsersUl" >
+                            <a class="scrollItem list-group-item list-group-item-action row" data-bind="click: $root.selectedUser">
+                                <img data-bind="attr:{src: avatarPath}" class="avatar-chat">
+                                <p data-bind="text:userName" ></p>
+                            </a>
+                        </ul>
+                        <ul class="list-group searchResultList" data-bind="foreach: searchResult,visible:listSearchResultUl ">
+                            <a class="scrollItem list-group-item list-group-item-action search-result" data-bind="click: $root.selectedMessage">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <p class="mb-1 user-name" data-bind="text:user.userName"></p>
+                                    <small class="clock" data-bind="text:dateTime" ></small>
+                                </div>
+                                <p class="mb-1" data-bind="text: messag.substr(0,30)" ></p>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8" data-bind="visible: chatBoxDiv" style="padding-left: 0" id="messageContainer">
+            <div>
+                <div class="sticky-top row chat-header">
+                    <h5 data-bind="text :selectedChatName"></h5>
+                    <input type="text" class="form-control search-messages"data-bind="textInput: searchParam" placeholder="Search" >
+                </div>
+                <div class="chat-box ">
+                    <ul data-bind="attr:{id :selectedChatId} ,foreach :selectedChatListMessages" class="list-unstyled chat ">
+                        <li  data-bind="attr:{id : id},class: $root.messageDefaultClass">
+                                <div class="p-3 ml-2 z-depth-1">
+                                    <div class="header">@*
+                                        <img data-bind="attr:{scr: user.avatarPath}" class="avatar-chat">*@
+                                        <strong class="primary-font" data-bind="text : user.userName" ></strong>
+                                        <small class="text-muted" data-bind="text: dateTime"></small>
+                                    </div>
+                                    <hr class="w-100" />
+                                    <p class="mb-0" data-bind="text:messag"><a data-bind="attr{name: id}"></a></p>
+                                </div>
+                            </li>
+                        </ul>
+                </div>
+                <div class="message-input row">
+                    <input type="text" id="txtmessage" class="form-control input-message" data-bind="value:inputMessage" placeholder="Type a message" />
+                    <button class="send-btn" type="button" data-bind="click : sendMessage"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="createGroup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label class="col-form-label">Имя группы:</label>
+                        <input type="text" class="form-control" id="nameGroup">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Статус</label>
+                        <select id="statusGroup">
+                            <option value="true">Открытый</option>
+                            <option value="false">Закрытый</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="CreateGroup()">Создать</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="user-settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-dark">Выход</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="CreateGroup()">Создать</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="~/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/chat.js"></script>
+    <script src="lib/knockout/knockout-latest.js"></script>
+    <script src="js/indexKO.js"></script> 
+}

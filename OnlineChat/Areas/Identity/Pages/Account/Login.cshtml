@@ -1,0 +1,46 @@
+﻿@page
+@model LoginModel
+
+<h1>@ViewData["Title"]</h1>
+<div class="row text-center ">
+    <div class="col-md-4 mr-auto ml-auto">
+        <section>
+            <form id="account" class="form-signin" method="post">
+                <h4 class="h3 mb-3 font-weight-normal">Вход</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <input asp-for="Input.Email" class="form-control" placeholder="Email address" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe">
+                            <input asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Вход</button>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword" style="text-decoration: none; color: #ffffff">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" style="text-decoration: none; color: #ffffff">Register as a new user</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
