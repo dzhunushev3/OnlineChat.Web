@@ -63,7 +63,7 @@
                         </ul>
                 </div>
                 <div class="message-input row">
-                    <input type="text" id="txtmessage" class="form-control input-message" data-bind="value:inputMessage" placeholder="Type a message" />
+                    <input type="text" id="txtmessage" class="form-control input-message" data-bind="value:inputMessage, event: { keyup: clickEnter }" placeholder="Type a message" />
                     <button class="send-btn" type="button" data-bind="click : sendMessage"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
                 </div>
             </div>

@@ -40,6 +40,12 @@
                 };
             });
     });
+    self.clickEnter = function (d, e) {
+        if (e.keyCode == 13) {
+            jQuery.post("/Home/SendMessage",{message:self.inputMessage,idChat:self.selectedChatId});
+            self.inputMessage("");  
+        };
+    };
     function getUser() {
         jQuery.getJSON("/Home/GetUser",function (data) {
             self.Id(data.id);
