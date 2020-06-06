@@ -49,7 +49,7 @@
                 </div>
                 <div class="chat-box ">
                     <ul data-bind="attr:{id :selectedChatId} ,foreach :selectedChatListMessages" class="list-unstyled chat ">
-                        <li  data-bind="attr:{id : id},class: $root.messageDefaultClass">
+                        <li  data-bind="attr:{id : id}" class="d-flex justify-content-between mb-4">
                                 <div class="p-3 ml-2 z-depth-1">
                                     <div class="header">@*
                                         <img data-bind="attr:{scr: user.avatarPath}" class="avatar-chat">*@

@@ -1,24 +1,22 @@
 ﻿var ViewModel = function () {
     var self = this;
-    self.Id = ko.observable();
-    self.UserName = ko.observable();
-    self.AvatarPath = ko.observable();
-    self.chatList = ko.observableArray([]);
-    self.selectedChatName = ko.observable();
-    self.selectedChatId = ko.observable();
-    self.selectedChatListMessages = ko.observableArray([]);
-    self.inputMessage = ko.observable();
-    self.onlineUsersList = ko.observableArray([]);
-    self.searchParam = ko.observable();
-    self.searchResult =ko.observableArray([]);
-    self.listChatsUl = ko.observable(true);
-    self.listOnlineUsersUl = ko.observable(false);
-    self.listSearchResultUl = ko.observable(false);
-    self.chatBoxDiv = ko.observable(false);
-    self.selectedMessageId = ko.observable();
-    self.messageDefaultClass = ("d-flex justify-content-between mb-4");
+    self.Id = ko.observable(); // "id" текущего пользователя 
+    self.UserName = ko.observable();// "User Name " текущего пользователя 
+    self.AvatarPath = ko.observable(); // ссылка на аватор текущего пользователя
+    self.chatList = ko.observableArray([]); // список чатов текущего пользователя 
+    self.selectedChatName = ko.observable(); // имя выбраного чата 
+    self.selectedChatId = ko.observable();// "id" выбранного чата 
+    self.selectedChatListMessages = ko.observableArray([]);// список сообщений в выбранном чате
+    self.inputMessage = ko.observable(); // текстовое сообщения для отправки 
+    self.onlineUsersList = ko.observableArray([]); // список онлайн пользователей 
+    self.searchParam = ko.observable(); // параметры поиска в внутри чата 
+    self.searchResult =ko.observableArray([]); // результаты поиска
+    self.listChatsUl = ko.observable(true); // HTML элемент для отображения списка чатов 
+    self.listOnlineUsersUl = ko.observable(false);// HTML элемент для отображения списка онлайн пользователей
+    self.listSearchResultUl = ko.observable(false);// HTML элемент для отображения списка результата поиска
+    self.chatBoxDiv = ko.observable(false); // HTML элемент для отображения блока с сообщениями
 
-    self.searchParam.subscribe(function (value) {
+    self.searchParam.subscribe(function (value) { // поиск внутри чата 
         jQuery.getJSON("/Home/SearchMessages",
             { searchParam: value, idChat: self.selectedChatId },
             function (data) {
@@ -40,13 +38,13 @@
                 };
             });
     });
-    self.clickEnter = function (d, e) {
+    self.clickEnter = function (d, e) { // отправка сообщений по нажатии "Enter"
         if (e.keyCode == 13) {
             jQuery.post("/Home/SendMessage",{message:self.inputMessage,idChat:self.selectedChatId});
             self.inputMessage("");  
         };
     };
-    function getUser() {
+    function getUser() { // получения текущего пользователя
         jQuery.getJSON("/Home/GetUser",function (data) {
             self.Id(data.id);
             self.AvatarPath(data.avatarPath);
@@ -54,23 +52,23 @@
         });
     }
 
-    self.selectedMessage = function(data) {
+    self.selectedMessage = function(data) { // выбор сообшения и отображения 
         window.location.href = data.id;
     };
-    function getChatList() {
+    function getChatList() { // получения списка чатов 
         jQuery.getJSON("/Home/GetListChats", 
             function (data) {
-                self.chatList(data); //Put the response in ObservableArray
+                self.chatList(data);
             }
         );
     }
-    self.selectedChat = function(chat){
+    self.selectedChat = function(chat){// выбор чата для отображения сообщений 
         self.chatBoxDiv(true);
         self.selectedChatName(chat.name);
         self.selectedChatId(chat.id);
         getSelectedChatMessages(chat.id);
     };
-    self.selectedUser = function(user){
+    self.selectedUser = function(user){// выбор ползователя и показ в списке чатов 
         self.selectedChatName(user.userName);
         jQuery.getJSON("/Home/SelectedUserChat",
             { userId: user.id },
@@ -83,12 +81,12 @@
             });
 
     };
-    self.listChat = function(){
+    self.listChat = function(){ // Отображения списка чатов
         self.listOnlineUsersUl(false);
         self.listChatsUl(true);
         getChatList();
     };
-    self.onlineUser = function () {
+    self.onlineUser = function () {// Получения списка онлайн пользователей
         self.onlineUsersList();
         self.listChatsUl(false);
         self.listOnlineUsersUl(true);
@@ -97,7 +95,7 @@
                 self.onlineUsersList(data);
             });
     };
-    function getSelectedChatMessages(id) {
+    function getSelectedChatMessages(id) {// Получения списка сообщений по "id" чата 
         self.selectedChatListMessages();
         jQuery.getJSON("/Home/SelectedChat",
             { idChat: id },
@@ -105,7 +103,7 @@
                 self.selectedChatListMessages(data);
             });
     }
-    self.sendMessage = function(){
+    self.sendMessage = function(){//Отправка сообщений 
         jQuery.post("/Home/SendMessage",{message:self.inputMessage,idChat:self.selectedChatId});
         self.inputMessage("");
     };
